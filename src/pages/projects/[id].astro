@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map(project => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={project.title}>
+  <div class="bg-white">
+    <div class="relative">
+      <div class="w-full h-[60vh] overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          class="w-full h-full object-cover animate-fade-in"
+        />
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="animate-slide-up">
+              <p class="text-esprit-red font-semibold">{project.category}</p>
+              <h1 class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                {project.title}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 animate-fade-in">
+          <div class="aspect-video w-full mb-8">
+            <iframe
+              src={project.video}
+              class="w-full h-full rounded-xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="prose max-w-none">
+            <p class="text-lg text-gray-600 whitespace-pre-line">{project.longDescription}</p>
+          </div>
+
+          <div class="mt-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Screenshots</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
+              {project.screenshots.map((screenshot) => (
+                <img src={screenshot} alt="Screenshot" class="rounded-lg shadow-lg hover:scale-[1.02] transition-transform" />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="animate-slide-in">
+          <div class="sticky top-8">
+            <div class="bg-gray-50 rounded-xl p-6 mb-8">
+              <h2 class="text-lg font-semibold text-gray-900 mb-4">Project Details</h2>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="text-sm font-medium text-gray-500">Release Date</dt>
+                  <dd class="mt-1 text-sm text-gray-900">{new Date(project.date).toLocaleDateString()}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm font-medium text-gray-500">Technologies</dt>
+                  <dd class="mt-1 text-sm text-gray-900">
+                    <div class="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-esprit-blue/10 text-esprit-blue">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-sm font-medium text-gray-500">Team Members</dt>
+                  <dd class="mt-1 text-sm text-gray-900">
+                    <ul class="list-disc list-inside space-y-1">
+                      {project.team.map((member) => (
+                        <li>
+                          <a 
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-esprit-blue hover:text-esprit-blue/80"
+                          >
+                            {member.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+                {project.links?.itch && (
+                  <div>
+                    <dt class="text-sm font-medium text-gray-500">Play the Game</dt>
+                    <dd class="mt-2">
+                      <a
+                        href={project.links.itch}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-[#FA5C5C] hover:bg-[#E32D2D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FA5C5C]"
+                      >
+                        Play on itch.io
+                      </a>
+                    </dd>
+                  </div>
+                )}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.6s ease-out forwards;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import '@fontsource/inter';
+import '../assets/css/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "GamiX option at ESPRIT University - Game Development and Interactive Experiences" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title} | GamiX ESPRIT</title>
+  </head>
+  <body class="min-h-screen bg-gray-50">
+    <header class="bg-white shadow-sm">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex">
+            <a href="/gamix/" class="flex items-center">
+              <img src="/gamix/assets/logo.png" alt="GamiX Logo" class="h-8 w-auto mr-2" />
+              
+            </a>
+            <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+              <a href="/gamix/" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900">Home</a>
+              <a href="/gamix/projects" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900">Projects</a>
+              <a href="/gamix/about" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900">About</a>
+              <a href="/gamix/contact" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-white mt-auto">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+          <div class="flex space-x-6 md:order-2">
+            <a href="https://www.esprit.tn" class="text-gray-400 hover:text-gray-500">
+              ESPRIT University
+            </a>
+          </div>
+          <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+            © {new Date().getFullYear()} GamiX. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --accent: 62, 167, 255;
+  }
+  
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #F6F6F6;
+  }
+</style>

@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects';
+
+const categories = [
+  'Action Games',
+  'Puzzle Games',
+  'Strategy Games',
+  'Simulation Games',
+  'Role-Playing Games',
+  'Educational Games',
+  'Mobile Games',
+  'Virtual Reality',
+  'Augmented Reality',
+  'Serious Games'
+];
+---
+
+<Layout title="Projects">
+  <div class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="border-b border-gray-200 pb-5">
+             <h1 class="text-3xl font-bold leading-tight text-gray-900 animate-fade-in">Student Projects</h1>
+           </div>
+
+      <div class="mt-8 animate-slide-up">
+        <div class="flex flex-col sm:flex-row justify-between gap-4">
+          <div class="flex flex-wrap gap-2">
+            <select id="category-filter" class="rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-esprit-blue focus:outline-none focus:ring-esprit-blue sm:text-sm">
+              <option value="">All Categories</option>
+              {categories.map(category => (
+                <option value={category}>{category}</option>
+              ))}
+            </select>
+            <select id="sort-order" class="rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-esprit-blue focus:outline-none focus:ring-esprit-blue sm:text-sm">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+            </select>
+          </div>
+          <div class="relative">
+            <input
+              type="text"
+              id="search"
+              placeholder="Search projects..."
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-esprit-blue focus:ring-esprit-blue sm:text-sm"
+            />
+          </div>
+        </div>
+
+        <div id="projects-grid" class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <div 
+              class="project-card flex flex-col overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-[1.02] animate-fade-in" 
+              style={`animation-delay: ${index * 100}ms`}
+              data-category={project.category}
+              data-title={project.title}
+              data-date={project.date}
+            >
+              <div class="flex-shrink-0">
+                <img class="h-48 w-full object-cover" src={project.image} alt={project.title} />
+              </div>
+              <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-esprit-red">
+                    {project.category}
+                  </p>
+                  <div class="mt-2">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                      {project.title}
+                    </h3>
+                    <p class="mt-3 text-base text-gray-500">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-6">
+                  <a
+                    href={`/projects/${project.id}`}
+                    class="text-base font-semibold text-esprit-blue hover:text-esprit-blue/80"
+                  >
+                    View Project →
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div id="no-results" class="hidden mt-8 text-center text-gray-500">
+          No projects found matching your criteria.
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    opacity: 0;
+    animation: slideUp 0.6s ease-out forwards;
+  }
+</style>
+
+<script>
+  const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement;
+  const sortOrder = document.getElementById('sort-order') as HTMLSelectElement;
+  const searchInput = document.getElementById('search') as HTMLInputElement;
+  const projectsGrid = document.getElementById('projects-grid') as HTMLElement;
+  const noResults = document.getElementById('no-results') as HTMLElement;
+  const projectCards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
+
+  function updateProjects() {
+    const selectedCategory = categoryFilter.value;
+    const selectedSort = sortOrder.value;
+    const searchTerm = searchInput.value.toLowerCase();
+    let visibleCount = 0;
+
+    // Convert NodeList to Array for sorting
+    const projectsArray = Array.from(projectCards);
+
+    // Sort projects
+    projectsArray.sort((a, b) => {
+      const titleA = a.dataset.title?.toLowerCase() || '';
+      const titleB = b.dataset.title?.toLowerCase() || '';
+      const dateA = new Date(a.dataset.date || '').getTime();
+      const dateB = new Date(b.dataset.date || '').getTime();
+
+      switch (selectedSort) {
+        case 'newest':
+          return dateB - dateA;
+        case 'oldest':
+          return dateA - dateB;
+        case 'az':
+          return titleA.localeCompare(titleB);
+        case 'za':
+          return titleB.localeCompare(titleA);
+        default:
+          return 0;
+      }
+    });
+
+    // Reorder elements in the DOM
+    projectsArray.forEach(card => {
+      projectsGrid.appendChild(card);
+    });
+
+    // Filter projects
+    projectCards.forEach(card => {
+      const category = card.dataset.category || '';
+      const title = card.dataset.title?.toLowerCase() || '';
+      const description = card.querySelector('p.text-gray-500')?.textContent?.toLowerCase() || '';
+
+      const matchesCategory = !selectedCategory || category === selectedCategory;
+      const matchesSearch = !searchTerm || 
+        title.includes(searchTerm) || 
+        description.includes(searchTerm);
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Show/hide no results message
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  // Add event listeners
+  categoryFilter?.addEventListener('change', updateProjects);
+  sortOrder?.addEventListener('change', updateProjects);
+  searchInput?.addEventListener('input', updateProjects);
+
+  // Initial sort
+  updateProjects();
+</script>

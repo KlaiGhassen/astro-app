@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome">
+  <div class="relative isolate overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800">
+    <!-- Decorative elements for visual appeal -->
+    <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+      <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678">
+        <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".2" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+        <defs>
+          <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#9089FC" />
+            <stop offset="1" stop-color="#FF80B5" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+      <div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
+        <!-- Logo with correct path -->
+        <img src="/gamix/assets/logoWhite.png" alt="GamiX Logo" class="h-16 w-auto mb-8" />
+        
+        <h1 class="animate-fade-in mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                  Welcome to Gami<span class="text-red-600">X</span>
+                </h1>
+                <p class="animate-fade-in mt-6 text-lg leading-8 text-gray-300">
+                  Discover the world of game development at ESPRIT University. Our GamiX option prepares students for careers in game design, development, and interactive media.
+                </p>
+        <div class="mt-10 flex items-center gap-x-6">
+          <a
+            href="/projects"
+            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 transition-all duration-300"
+          >
+            View Projects
+          </a>
+          <a href="/about" class="group text-sm font-semibold leading-6 text-gray-200 hover:text-white">
+            Learn more <span aria-hidden="true" class="ml-1 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- About image on the right side -->
+      <div class="hidden lg:block lg:flex-1 lg:ml-12">
+        <div class="relative h-full rounded-2xl overflow-hidden">
+          <img
+            src="/gamix/assets/about.jpeg"
+            alt="Game Development at ESPRIT"
+            class="h-full w-full object-cover object-center"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-gray-600">Game Development Excellence</h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-black sm:text-4xl">
+          Everything you need to become a game developer
+        </p>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Our program offers comprehensive training in game development, from concept to deployment.
+        </p>
+      </div>
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+          <div class="flex flex-col rounded-lg border border-gray-200 p-6 transition-all hover:shadow-xl hover:-translate-y-1 bg-white">
+            <dt class="text-xl font-semibold leading-7 text-black flex items-center">
+              <svg class="w-8 h-8 mr-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+              </svg>
+              Industry-Standard Tools
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">Learn to use professional game development tools and engines used in the industry.</p>
+            </dd>
+          </div>
+          <div class="flex flex-col rounded-lg border border-gray-200 p-6 transition-all hover:shadow-xl hover:-translate-y-1 bg-white">
+            <dt class="text-xl font-semibold leading-7 text-black flex items-center">
+              <svg class="w-8 h-8 mr-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              Hands-on Projects
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">Build your portfolio with real game development projects throughout the program.</p>
+            </dd>
+          </div>
+          <div class="flex flex-col rounded-lg border border-gray-200 p-6 transition-all hover:shadow-xl hover:-translate-y-1 bg-white">
+            <dt class="text-xl font-semibold leading-7 text-black flex items-center">
+              <svg class="w-8 h-8 mr-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+              Expert Mentorship
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">Learn from experienced game developers and industry professionals.</p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,275 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Faculty data remains for potential future use or internal reference
+const faculty = [
+  {
+    name: 'Imed Amri',
+    role: 'Mobile Chef Departement',
+    image: 'https://placehold.co/400x400',
+    bio: 'With extensive experience in mobile application development, Professor Amri leads our mobile gaming initiatives and teaches students how to create cross-platform mobile game experiences.',
+    specialization: 'Mobile Development'
+  },
+  {
+    name: 'Abdel Monem Aissa',
+    role: 'Option Responsible',
+    image: 'https://placehold.co/400x400',
+    bio: 'As the program coordinator, Professor Aissa brings decades of industry experience to guide the curriculum development and ensure students receive cutting-edge training aligned with industry needs.',
+    specialization: 'Program Management'
+  },
+  {
+    name: 'Mourad Aouini',
+    role: 'Instructor',
+    image: 'https://placehold.co/400x400',
+    bio: 'A specialist in 3D modeling and digital asset creation, Professor Aouini teaches students how to create optimized 3D meshes for games and interactive applications. His work has been featured in several award-winning game titles.',
+    specialization: '3D Meshing'
+  },
+  {
+    name: 'Fadhel Essid',
+    role: 'Instructor',
+    image: 'https://placehold.co/400x400',
+    bio: 'Professor Essid is an Unreal Engine expert who specializes in creating immersive XR experiences. He guides students through developing high-fidelity graphics and interactive environments while pushing the boundaries of extended reality applications.',
+    specialization: 'Unreal Engine Development / XR Development'
+  },
+  {
+    name: 'Nouha Ben Slimen',
+    role: 'Instructor',
+    image: 'https://placehold.co/400x400',
+    bio: 'With a background in procedural generation and XR technologies, Professor Ben Slimen teaches advanced techniques for creating dynamic game worlds and immersive experiences. Her research focuses on the intersection of AI and generative game design.',
+    specialization: 'Game Generation / XR Technologies'
+  },
+  {
+    name: 'Hamza Chenenaoui',
+    role: 'Instructor',
+    image: 'https://placehold.co/400x400',
+    bio: 'Combining expertise in machine learning with multiplayer game architecture, Professor Chenenaoui teaches students how to implement intelligent systems and robust networking solutions in Unity. His work focuses on creating responsive and scalable multiplayer experiences.',
+    specialization: 'Machine Learning / Unity Backend & Multiplayer'
+  },
+  {
+    name: 'Yassin Dhaya',
+    role: 'Instructor',
+    image: 'https://placehold.co/400x400',
+    bio: 'As a Unity development expert with extensive XR experience, Professor Dhaya guides students through building immersive applications across VR, AR, and MR platforms. His projects have been implemented in both entertainment and educational contexts.',
+    specialization: 'Unity Development / XR Development'
+  }
+];
+---
+
+<Layout title="About">
+  <div class="bg-white">
+    <div class="relative isolate overflow-hidden bg-gradient-to-b from-esprit-blue/20 px-6 py-24 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:max-w-4xl lg:flex lg:items-center">
+              <div class="lg:w-1/2">
+                <h1 class="animate-fade-in text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl text-center lg:text-left">About GamiX</h1>
+                <p class="animate-fade-in mt-6 text-lg leading-8 text-gray-600">
+                  The GamiX option at ESPRIT University is designed to prepare the next generation of game developers. Our program combines technical expertise with creative innovation, providing students with the skills needed to succeed in the gaming industry.
+                </p>
+              </div>
+              <div class="lg:w-1/2 lg:pl-8 mt-4 lg:mt-0">
+                <img src="/gamix/assets/team.jpg" alt="GamiX Students" class="rounded-lg shadow-lg team-image" />
+              </div>
+            </div>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-esprit-red">Our Program</h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Comprehensive Game Development Education
+        </p>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+          <div class="flex flex-col">
+            <dt class="text-base font-semibold leading-7 text-gray-900">Technical Excellence</dt>
+            <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">Master programming languages, game engines, and development tools used in professional game development.</p>
+            </dd>
+          </div>
+          <div class="flex flex-col">
+            <dt class="text-base font-semibold leading-7 text-gray-900">Creative Development</dt>
+            <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">Learn game design principles, storytelling, and user experience design to create engaging games.</p>
+            </dd>
+          </div>
+          <div class="flex flex-col">
+            <dt class="text-base font-semibold leading-7 text-gray-900">Industry Connection</dt>
+            <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">Work on real projects and connect with industry professionals through internships and workshops.</p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+   
+    <!-- New Section Highlighting Expertise -->
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 bg-gray-50">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-esprit-red">Our Expertise</h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Diverse Skillset Driving Innovation
+        </p>
+         <p class="mt-6 text-lg leading-8 text-gray-600">
+           Our team brings together a wide range of expertise from across the game development landscape, ensuring comprehensive and cutting-edge instruction.
+         </p>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+         <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
+           
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                 </svg>
+               </div>
+               Mobile Development
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Cross-platform mobile game creation and optimization.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                 </svg>
+               </div>
+               Program Management
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Curriculum development and industry alignment.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.5l2.25 1.313M12 7.5l-2.25 1.313M12 7.5V5.25m2.25-.75l-2.25 1.313M14.25 4.5l-2.25-1.313M14.25 4.5v2.25m-4.5-.75l-2.25 1.313M9.75 4.5l-2.25-1.313M9.75 4.5v2.25m9 7.5l-2.25-1.313M21 15l-2.25 1.313M21 15v2.25m-18 0l2.25-1.313M3 17.25l2.25 1.313M3 17.25V15" />
+                 </svg>
+               </div>
+               3D Modeling & Meshing
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Digital asset creation and optimization for games.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                 </svg>
+               </div>
+               Unreal Engine Development
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">High-fidelity graphics and interactive environment creation.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639l7.5-10.5a.5.5 0 01.884 0l7.5 10.5a.5.5 0 01-.442.778H2.478a.5.5 0 01-.442-.778z" />
+                 </svg>
+               </div>
+               XR Development (VR/AR/MR)
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Building immersive applications across extended reality platforms.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
+                 </svg>
+               </div>
+               Game Generation & AI
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Procedural content generation and AI integration in games.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h7.5M8.25 12h7.5m-7.5 5.25h7.5M3 3h18v18H3V3z" />
+                 </svg>
+               </div>
+               Machine Learning
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Implementing intelligent systems within game environments.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                 </svg>
+               </div>
+               Unity Development
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Building games and interactive experiences using the Unity engine.</dd>
+           </div>
+
+           <div class="relative pl-16">
+             <dt class="text-base font-semibold leading-7 text-gray-900">
+               <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-esprit-red">
+                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                 </svg>
+               </div>
+               Backend & Multiplayer Systems
+             </dt>
+             <dd class="mt-2 text-base leading-7 text-gray-600">Designing robust networking solutions for multiplayer games.</dd>
+           </div>
+
+         </dl>
+       </div>
+     </div>
+
+  </div>
+</Layout>
+
+<style>
+  .team-image {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .team-image.zoomed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    transform: scale(1);
+  }
+
+  body.zoomed {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const teamImage = document.querySelector('.team-image');
+
+  if (teamImage) {
+    teamImage.addEventListener('click', () => {
+      teamImage.classList.toggle('zoomed');
+      document.body.classList.toggle('zoomed');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (teamImage && !(event.target instanceof Node && teamImage.contains(event.target))) {
+        teamImage.classList.remove('zoomed');
+        document.body.classList.remove('zoomed');
+      }
+    });
+  }
+</script>
